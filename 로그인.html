@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 페이지</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        td {
+            padding: 8px;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-top: 8px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .footer-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .footer-buttons button {
+            width: auto;
+            background-color: transparent;
+            color: #007BFF;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .footer-buttons button:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h3>로그인</h3>
+        <form id="signupform">
+            <table>
+                <tr>
+                    <td>아이디</td>
+                    <td><input type="text" id="username" placeholder="아이디를 입력하세요" ></td>
+                </tr>
+                <tr>
+                    <td>비밀번호</td>
+                    <td><input type="password" id="pin" placeholder="비밀번호를 입력하세요"></td>
+                </tr>
+            </table>
+            <button type="submit">로그인</button>
+            <div class="footer-buttons">
+                <button type="button">아이디 찾기</button>
+                <button type="button">비밀번호 찾기</button>
+            </div>
+            <div class="footer-buttons">
+                <button type="button" onclick="location.href='회원가입.html'">회원가입</button>
+            </div>
+        </form>
+
+        <script>
+            document.getElementById('signupform').addEventListener('submit',function(event) {
+                event.preventDefault();
+
+                const username = document.getElementById('username').value.trim();
+                const pin = document.getElementById('pin').value.trim();
+
+                if (!username) {
+                    alert('아이디를 입력해주세요:');
+                    return;
+                }
+                if (!pin) {
+                    alert('비밀번호를 입력해주세요:');
+                    return;
+                }
+                
+                location.href='main.html';
+            });
+        </script>
+    </div>
+</body>
+</html>

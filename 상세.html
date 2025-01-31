@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품 상세</title>
+    <link rel="stylesheet" href="상세.css">
+</head>
+<body>
+    <!-- 헤더 -->
+    <header>
+        <div class="logo">
+            <h1>쇼핑몰</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="main.html">홈</a></li>
+                <li><a href="#">카테고리</a></li>
+                <li><a href="#">장바구니</a></li>
+                <li><a href="#">마이페이지</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 상품 상세 정보 -->
+    <section class="product-detail">
+        <div class="product-info">
+            <div class="product-image">
+                <img src="https://via.placeholder.com/500" alt="상품 이미지">
+            </div>
+            <div class="product-description">
+                <h2>상품 1</h2>
+                <p>이 상품은 고품질의 재료로 만들어졌습니다. 아주 편안하고 스타일리시한 디자인으로 누구나 좋아할 것입니다.</p>
+                <span>₩ 30,000</span>
+                <div class="add-to-cart">
+                    <button onclick="cart('상품 1', 30000)">장바구니에 담기</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer>
+        <p>&copy; 2025 쇼핑몰. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function cart(name, by){
+            alert(name + " 장바구니에 담겼습니다. 가격: " + by + "원");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>장바구니</title>
+    <link rel="stylesheet" href="장바구니.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>장바구니</h1>
+        </div>
+    </header>
+
+    <section class="cart-list">
+        <h2>장바구니 상품</h2>
+        <div id="cart-items"></div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 쇼핑몰. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // 로컬 스토리지에서 장바구니 정보 가져오기
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // 장바구니 항목을 HTML로 표시
+        const cartItems = document.getElementById('cart-items');
+
+        if (cart.length === 0) {
+            cartItems.innerHTML = '<p>장바구니에 담긴 상품이 없습니다.</p>';
+        } else {
+            cart.forEach((product, index) => {
+                const productElement = document.createElement('div');
+                productElement.classList.add('cart-item');
+                productElement.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}" class="cart-item-img">
+                    <p>${product.name}</p>
+                    <span>₩ ${product.price}</span>
+                    <button class="remove-item" onclick="removeItem(${index})">삭제</button>
+                `;
+                cartItems.appendChild(productElement);
+            });
+        }
+
+        // 상품 삭제 함수
+        function removeItem(index) {
+            // 해당 인덱스의 상품을 제거
+            cart.splice(index, 1);
+
+            // 로컬 스토리지에 업데이트된 장바구니 저장
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // 장바구니 항목 다시 렌더링
+            window.location.reload();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+/* 기본적인 리셋 스타일 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 전체 배경색 및 폰트 설정 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* 헤더 스타일 */
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+}
+
+header .logo h1 {
+    text-align: center;
+    font-size: 2em;
+    margin: 0;
+}
+
+header nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* 메인 배너 스타일 */
+.main-banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 상품 목록 */
+.product-list {
+    padding: 20px;
+    text-align: center;
+}
+
+.product-list h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.product {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.product img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.product p {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.product span {
+    font-size: 1.3em;
+    color: #f39c12;
+}
+
+.product button {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 1em;
+    color: white;
+    background-color: #27ae60;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product button:hover {
+    background-color: #2ecc71;
+}
+
+/* 상품 상세 페이지 */
+.product-detail {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-top: 40px;
+}
+
+.product-detail .product-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.product-detail .product-image img {
+    max-width: 500px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.product-detail .product-description {
+    max-width: 500px;
+}
+
+.product-detail .product-description h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.product-detail .product-description p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+.product-detail .product-description span {
+    font-size: 1.5em;
+    color: #f39c12;
+    margin-bottom: 20px;
+}
+
+.product-detail .product-description .add-to-cart button {
+    padding: 12px 20px;
+    font-size: 1.2em;
+    color: white;
+    background-color: #27ae60;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product-detail .product-description .add-to-cart button:hover {
+    background-color: #2ecc71;
+}
+
+/* 푸터 스타일 */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+footer p {
+    font-size: 1em;
+}

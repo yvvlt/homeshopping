@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쇼핑몰</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <!-- 헤더 -->
+    <header>
+        <div class="logo">
+            <h1>쇼핑몰</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="main.html">홈</a></li>
+                <li><a href="#">카테고리</a></li>
+                <li><a href="장바구니.html">장바구니</a></li>
+                <li><a href="#">마이페이지</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 메인 배너 -->
+    <section class="main-banner">
+        <img src="https://via.placeholder.com/1200x400" alt="메인 배너">
+    </section>
+
+    <!-- 상품 목록 -->
+    <section class="product-list">
+        <h2>추천 상품</h2>
+        <div class="products">
+            <div class="product">
+                <img src="이미지1.png" alt="상품 1" id="img">
+                <p>상품 1</p>
+                <span>₩ 30,000</span>
+                <button class="add-to-cart" onclick="cart('이미지1.png','상품1', 30000)">장바구니에 담기</button>
+                <button class="product-detail" onclick="location.href='상세.html'">제품상세</button>
+            </div>
+            <div class="product">
+                <img src="이미지2.png" alt="상품 2" id="img">
+                <p>상품 2</p>
+                <span>₩ 40,000</span>
+                <button class="add-to-cart" onclick="cart('이미지2.png', '상품2', 40000)">장바구니에 담기</button>
+                <button class="product-detail" onclick="location.href='상세.html'">제품상세</button>
+            </div>
+            <div class="product">
+                <img src="이미지3.png" alt="상품 3">
+                <p>상품 3</p>
+                <span>₩ 50,000</span>
+                <button class="add-to-cart" onclick="cart('이미지3.png', '상품3', 50000)">장바구니에 담기</button>
+                <button class="product-detail" onclick="location.href='상세.html'">제품상세</button>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/200" alt="상품 4">
+                <p>상품 4</p>
+                <span>₩ 60,000</span>
+                <button class="add-to-cart" onclick="cart('이미지4.png', '상품4', 60000)">장바구니에 담기</button>
+                <button class="product-detail" onclick="location.href='상세.html'">제품상세</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer>
+        <p>&copy; 2025 쇼핑몰. All rights reserved.</p>
+    </footer>
+</body>
+
+<script>
+
+function cart(image, name, price) {
+    // 상품 정보 객체 생성
+    const product = { image: image, name: name, price: price };
+
+    // 기존 장바구니가 있으면 가져오고, 없으면 빈 배열로 초기화
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // 상품을 장바구니에 추가
+    cart.push(product);
+
+    // 장바구니를 로컬 스토리지에 저장
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    alert(name + " " + price + "원을 담았습니다.");
+}
+
+</script>
+</html>
