@@ -1,57 +1,50 @@
-/* 기본적인 리셋 스타일 */
+/* 기본 스타일링 */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* 전체 배경색 및 폰트 설정 */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
-    line-height: 1.6;
+    background-color: #f4f4f4;
 }
 
-/* 헤더 스타일 */
 header {
-    background-color: #333;
+    background-color: #50b0ff;
     color: white;
-    padding: 10px 0;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 header .logo h1 {
-    text-align: center;
-    font-size: 2em;
     margin: 0;
 }
 
-header nav ul {
-    list-style-type: none;
+nav ul {
+    list-style: none;
     display: flex;
-    justify-content: center;
-    margin-top: 10px;
 }
 
-header nav ul li {
-    margin: 0 15px;
+nav ul li {
+    margin-left: 30px;
 }
 
-header nav ul li a {
+nav ul li a {
     color: white;
     text-decoration: none;
-    font-size: 1.1em;
+    font-weight: bold;
 }
 
-header nav ul li a:hover {
-    text-decoration: underline;
+nav ul li a:hover {
+    color: #f39c12;
 }
 
-/* 메인 배너 스타일 */
 .main-banner img {
     width: 100%;
     height: auto;
-    display: block;
 }
 
 /* 상품 목록 */
@@ -172,11 +165,11 @@ header nav ul li a:hover {
 
 /* 푸터 스타일 */
 footer {
-    background-color: #333;
+    background-color: #50b0ff;
     color: white;
     text-align: center;
-    padding: 20px;
-    margin-top: 40px;
+    padding: 10px;
+    margin-top: 30px;
 }
 
 footer p {

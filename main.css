@@ -44,7 +44,7 @@ nav ul li a:hover {
 
 .main-banner img {
     width: 100%;
-    height: auto;
+    height: 400px;
 }
 
 .product-list {
@@ -126,14 +126,14 @@ nav ul li a:hover {
 }
 
 footer {
-    background-color: #333;
+    background-color: #50b0ff;
     color: white;
     text-align: center;
     padding: 10px;
     margin-top: 30px;
 }
 
-.img {
+/* .img {
     width: 100px;
-    height: 200px;
-}
+    height: 10px;
+} */
