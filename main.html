@@ -30,70 +30,8 @@
     <!-- 상품 목록 -->
     <section class="product-list">
         <h2>추천 상품</h2>
-        <div class="products">
-            <div class="product">
-                <img src="img/이미지1.png" alt="상품 1" id="img">
-                <p>상품 1</p>
-                <span>₩ 150,000,000</span>
-                <button class="add-to-cart" onclick="cart('img/이미지1.png','상품1', 150000000)">장바구니에 담기</button>
-                <button class="product-detail" onclick="location.href='상세.html'">제품상세</button>
-            </div>
-            <div class="product">
-                <img src="img/이미지2.png" alt="상품 2" id="img">
-                <p>상품 2</p>
-                <span>₩ 200,000,000</span>
-                <button class="add-to-cart" onclick="cart('img/이미지2.png', '상품2', 200000000)">장바구니에 담기</button>
-                <button class="product-detail" onclick="location.href='상세.html'">제품상세</button>
-            </div>
-            <div class="product">
-                <img src="img/이미지3.png" alt="상품 3">
-                <p>상품 3</p>
-                <span>₩ 250,000,000</span>
-                <button class="add-to-cart" onclick="cart('img/이미지3.png', '상품3', 250000000)">장바구니에 담기</button>
-                <button class="product-detail" onclick="location.href='상세.html'">제품상세</button>
-            </div>
-            <div class="product">
-                <img src="img/이미지4.png" alt="상품 4">
-                <p>상품 4</p>
-                <span>₩ 480,000,000</span>
-                <button class="add-to-cart" onclick="cart('img/이미지4.png', '상품4', 480000000)">장바구니에 담기</button>
-                <button class="product-detail" onclick="location.href='상세.html'">제품상세</button>
-            </div>
-            <div class="product">
-                <img src="img/이미지5.png" alt="상품 5">
-                <p>상품 5</p>
-                <span>₩ 700,000,000</span>
-                <button class="add-to-cart" onclick="cart('img/이미지5png', '상품5', 700000000)">장바구니에 담기</button>
-                <button class="product-detail" onclick="location.href='상세.html'">제품상세</button>
-            </div>
-            <div class="product">
-                <img src="img/이미지6.png" alt="상품 6">
-                <p>상품 6</p>
-                <span>₩ 800,000,000</span>
-                <button class="add-to-cart" onclick="cart('img/이미지6.png', '상품6', 800000000)">장바구니에 담기</button>
-                <button class="product-detail" onclick="location.href='상세.html'">제품상세</button>
-            </div>
-            <div class="product">
-                <img src="img/이미지7.png" alt="상품 7">
-                <p>상품 7</p>
-                <span>₩ 400,000,000</span>
-                <button class="add-to-cart" onclick="cart('img/이미지4.png', '상품7', 400000000)">장바구니에 담기</button>
-                <button class="product-detail" onclick="location.href='상세.html'">제품상세</button>
-            </div>
-            <div class="product">
-                <img src="img/이미지8.png" alt="상품 8">
-                <p>상품 8</p>
-                <span>₩ 800,000,000</span>
-                <button class="add-to-cart" onclick="cart('img/이미지8.png', '상품8', 800000000)">장바구니에 담기</button>
-                <button class="product-detail" onclick="location.href='상세.html'">제품상세</button>
-            </div>
-            <div class="product">
-                <img src="img/이미지9.png" alt="상품 9">
-                <p>상품 9</p>
-                <span>₩ 900,000,000</span>
-                <button class="add-to-cart" onclick="cart('img/이미지9.png', '상품9', 900000000)">장바구니에 담기</button>
-                <button class="product-detail" onclick="location.href='상세.html'">제품상세</button>
-            </div>
+        <div class="products" id="product-container">
+            
         </div>
     </section>
 
@@ -120,6 +58,36 @@ function cart(image, name, price) {
 
     alert(name + " " + price + "원을 담았습니다.");
 }
+
+const products = [
+    { imgSrc: "img/이미지1.png", name: "상품 1", price: 150000000 },
+    { imgSrc: "img/이미지2.png", name: "상품 2", price: 200000000 },
+    { imgSrc: "img/이미지3.png", name: "상품 3", price: 250000000 },
+    { imgSrc: "img/이미지4.png", name: "상품 4", price: 480000000 },
+    { imgSrc: "img/이미지5.png", name: "상품 5", price: 700000000 },
+    { imgSrc: "img/이미지6.png", name: "상품 6", price: 800000000 },
+    { imgSrc: "img/이미지7.png", name: "상품 7", price: 400000000 },
+    { imgSrc: "img/이미지8.png", name: "상품 8", price: 800000000 },
+    { imgSrc: "img/이미지9.png", name: "상품 9", price: 900000000 }
+];
+
+const productContainer = document.getElementById('product-container');
+
+products.forEach(product => {
+    const productDiv = document.createElement('div');
+    productDiv.classList.add('product');
+    
+    // 이미지, 상품명, 가격, 버튼들
+    productDiv.innerHTML = `
+        <img src="${product.imgSrc}" alt="${product.name}">
+        <p>${product.name}</p>
+        <span>₩ ${product.price.toLocaleString()}</span>
+        <button class="add-to-cart" onclick="cart('${product.imgSrc}', '${product.name}', ${product.price})">장바구니에 담기</button>
+        <button class="product-detail" onclick="location.href='상세.html'">제품상세</button>
+    `;
+    
+    productContainer.appendChild(productDiv);
+});
 
 </script>
 </html>
