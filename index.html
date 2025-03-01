@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쇼핑몰</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- 헤더 -->
+    <header>
+        
+        <div class="logo">
+            <h1>쇼핑몰</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">홈</a></li>
+                <li><a href="#">카테고리</a></li>
+                <li><a href="장바구니.html">장바구니</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 메인 배너 -->
+    <section class="main-banner">
+        <img src="img/main_banner.png" alt="메인 배너">
+    </section>
+
+    <!-- 상품 목록 -->
+    <section class="product-list">
+        <h2>추천 상품</h2>
+        <div class="products" id="product-container">
+            
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer>
+        <p>&copy; 2025 쇼핑몰. All rights reserved.</p>
+    </footer>
+</body>
+
+<script>
+
+function cart(image, name, price) {
+    // 상품 정보 객체 생성
+    const product = { image: image, name: name, price: price };
+
+    // 기존 장바구니가 있으면 가져오고, 없으면 빈 배열로 초기화
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // 상품을 장바구니에 추가
+    cart.push(product);
+
+    // 장바구니를 로컬 스토리지에 저장
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    alert(name + " " + price + "원을 담았습니다.");
+}
+
+const products = [
+    { imgSrc: "img/이미지1.png", name: "상품 1", price: 150000000 },
+    { imgSrc: "img/이미지2.png", name: "상품 2", price: 200000000 },
+    { imgSrc: "img/이미지3.png", name: "상품 3", price: 250000000 },
+    { imgSrc: "img/이미지4.png", name: "상품 4", price: 480000000 },
+    { imgSrc: "img/이미지5.png", name: "상품 5", price: 700000000 },
+    { imgSrc: "img/이미지6.png", name: "상품 6", price: 800000000 },
+    { imgSrc: "img/이미지7.png", name: "상품 7", price: 400000000 },
+    { imgSrc: "img/이미지8.png", name: "상품 8", price: 800000000 },
+    { imgSrc: "img/이미지9.png", name: "상품 9", price: 900000000 }
+];
+
+const productContainer = document.getElementById('product-container');
+
+products.forEach(product => {
+    const productDiv = document.createElement('div');
+    productDiv.classList.add('product');
+    
+    // 이미지, 상품명, 가격, 버튼들
+    productDiv.innerHTML = `
+        <img src="${product.imgSrc}" alt="${product.name}">
+        <p>${product.name}</p>
+        <span>₩ ${product.price.toLocaleString()}</span>
+        <button class="add-to-cart" onclick="cart('${product.imgSrc}', '${product.name}', ${product.price})">장바구니에 담기</button>
+        <button class="product-detail" onclick="location.href='상세.html'">제품상세</button>
+    `;
+    
+    productContainer.appendChild(productDiv);
+});
+
+</script>
+</html>
